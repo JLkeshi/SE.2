@@ -1,0 +1,216 @@
+/* General Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+/* Video Background */
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Main Content Styling */
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffcc8e;
+}
+
+
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .button a {
+    font-size: 1.5rem; /* Reduce font size on smaller screens */
+    padding: 12px 24px; /* Adjust padding */
+    width: 80%; /* Take up more screen width */
+  }
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  padding: 1px;
+}
+
+ /* Floating animation */
+ @keyframes floating {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Apply animation to buttons */
+.button a {
+  animation: floating 2s ease-in-out infinite;
+}
+
+
+.button a {
+
+  
+  color: white;
+  font-family: "ＭＳ Ｐゴシック";
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #ffb23e;
+  display: block;
+  position: relative;
+  padding: 20px 40px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-shadow: 3px 2px 3px #000;
+  filter: dropshadow(color=#000, offx=0px, offy=1px);
+  -webkit-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+  -moz-box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+  box-shadow: inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 20px;
+  animation: floating 2s ease-in-out infinite;
+}
+
+.button a:active {
+  top: 10px;
+  background-color: #F78900;
+  -webkit-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+  -moz-box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+  box-shadow: inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+
+}
+
+.button:after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  padding: 4px;
+  position: absolute;
+  bottom: -15px;
+  left: -4px;
+  z-index: -1;
+  background-color: #0b060075;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 3px;
+  border-radius: 20px;
+}
+
+.toggleSwitch {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.about-button {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: #FFA12B;
+  color: white;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.about-button:hover {
+  background-color: #F78900;
+}
+
+/* The switch - the box around the speaker */
+.toggleSwitch {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  border-radius: 50%;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.146);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Hide default HTML checkbox */
+#checkboxInput {
+  display: none;
+}
+
+.bell {
+  width: 18px;
+}
+
+.bell path {
+  fill: white;
+}
+
+.speaker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition-duration: 0.3s;
+}
+
+.speaker svg {
+  width: 18px;
+}
+
+.mute-speaker {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 3;
+  transition-duration: 0.3s;
+}
+
+.mute-speaker svg {
+  width: 18px;
+}
+
+#checkboxInput:checked + .toggleSwitch .speaker {
+  opacity: 0;
+  transition-duration: 0.3s;
+}
+
+#checkboxInput:checked + .toggleSwitch .mute-speaker {
+  opacity: 1;
+  transition-duration: 0.3s;
+  background-color: rgb(255, 0, 0);
+}
+
+#checkboxInput:active + .toggleSwitch {
+  transform: scale(0.7);
+}
+
+#checkboxInput:hover + .toggleSwitch {
+  background-color: rgb(61, 61, 61);
+}
